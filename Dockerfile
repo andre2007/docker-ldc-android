@@ -7,12 +7,12 @@ RUN cd ~ \
 	
 RUN mkdir -p /opt/android-sdk/ndk-bundle \
 	&& curl -L -O https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
-	&& unzip android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
+	&& unzip -q android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
 
 ENV NDK "/opt/android-sdk/ndk-bundle/android-ndk-r13b"
 
 RUN curl -L -O http://releases.llvm.org/3.9.1/llvm-3.9.1.src.tar.xz \
-	&& tar xvf llvm-3.9.1.src.tar.xz \
+	&& tar xf llvm-3.9.1.src.tar.xz \
 	&& cd llvm-3.9.1.src/ \
 	&& curl -O https://gist.githubusercontent.com/joakim-noah/1fb23fba1ba5b7e87e1a/raw/ff54ecbe824b5f45669ea3a86f136ded16b1dd91/android_tls \
 	&& git apply android_tls \
