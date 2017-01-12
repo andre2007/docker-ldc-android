@@ -1,4 +1,4 @@
-FROM debian
+FROM ubuntu
 
 RUN apt-get update && apt-get install -y curl build-essential git cmake unzip libconfig-dev
 RUN cd ~ \
@@ -7,7 +7,7 @@ RUN cd ~ \
 	
 RUN mkdir -p /opt/android-sdk/ndk-bundle \
 	&& curl -L -O https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
-	&& unzip -q android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
+	&& unzip -qq android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
 
 ENV NDK "/opt/android-sdk/ndk-bundle/android-ndk-r13b"
 
