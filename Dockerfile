@@ -1,6 +1,6 @@
 FROM debian
 
-RUN apt-get update && apt-get install -y build-essential git cmake unzip libconfig-dev
+RUN apt-get update && apt-get install -y curl build-essential git cmake unzip libconfig-dev
 RUN cd ~ \
 	&& curl -L -O http://downloads.dlang.org/releases/2.x/2.072.1/dmd_2.072.1-0_amd64.deb \
 	&& dpkg -i dmd_2.072.1-0_amd64.deb
