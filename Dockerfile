@@ -29,17 +29,6 @@ RUN curl -L -O http://releases.llvm.org/3.9.1/llvm-3.9.1.src.tar.xz \
 	&& cd ../../build/ \
 	&& make druntime-ldc phobos2-ldc -j5
 
-
-RUN cd ~ \
-	&& curl -L -O https://github.com/joakim-noah/android/releases/download/beta/ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz \
-	&& tar xvf ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz
-
-RUN ln -s /lib/x86_64-linux-gnu/libncursesw.so.5  /lib/x86_64-linux-gnu/libncursesw.so.6
-RUN cp -s ~/ldc2-android-arm-1.1.0-beta4-linux-x86_64/bin/ldc2 /usr/bin/ldc2
-
-RUN apt-get install -y build-essential cmake
-RUN apt-get install -y libstdc++6
-	
 # ENV PATH "$PATH:~/ldc2-android-arm-1.1.0-beta4-linux-x86_64/bin"
 
 # docker build -t ldc-android .
