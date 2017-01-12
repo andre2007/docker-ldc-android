@@ -2,8 +2,8 @@ FROM ubuntu
 
 RUN apt-get update && apt-get install -y curl build-essential git cmake unzip libconfig-dev
 RUN cd ~ \
-	&& curl -L -O http://downloads.dlang.org/releases/2.x/2.072.1/dmd_2.072.1-0_amd64.deb \
-	&& dpkg -i dmd_2.072.1-0_amd64.deb
+	&& curl -L -O http://downloads.dlang.org/releases/2.x/2.072.2/dmd_2.072.2-0_amd64.deb \
+	&& dpkg -i dmd_2.072.2-0_amd64.deb
 	
 RUN mkdir -p /opt/android-sdk/ndk-bundle \
 	&& curl -L -O https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
