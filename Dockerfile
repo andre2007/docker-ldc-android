@@ -22,7 +22,7 @@ RUN curl -L -O http://releases.llvm.org/3.9.1/llvm-3.9.1.src.tar.xz \
 	&& cmake .. -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=ARM -DLLVM_DEFAULT_TARGET_TRIPLE=armv7-none-linux-android \
 	&& make -j5
 
-RUN cd ../../ \
+RUN cd ~ \
 	&& git clone --recursive https://github.com/ldc-developers/ldc.git \
 	&& cd ldc/ \
 	&& git checkout 1155379b2 \
@@ -34,7 +34,7 @@ RUN cd ../../ \
 	&& cmake .. -DLLVM_CONFIG=../../llvm-3.9.1.src/build/bin/llvm-config \
 	&& make ldc2 -j5
 
-RUN cd ../runtime/druntime/ \
+RUN cd ~/ldc/runtime/druntime/ \
 	&& curl -O https://gist.githubusercontent.com/joakim-noah/849e411f66266bcb9fea3e21f7024bc6/raw/45d9ef5648fca216f4385bcae36f5c5dce6b7dc0/druntime_1.1.0_ldc_arm \
 	&& git apply druntime_1.1.0_ldc_arm \
 	&& cd ../phobos/ \
@@ -43,6 +43,3 @@ RUN cd ../runtime/druntime/ \
 	&& cd ../../build/ \
 	&& make druntime-ldc phobos2-ldc -j5 \
 	&& ln -s ~/llvm-3.9.1.src/build/bin/ldc2 /usr/local/bin
-
-# docker build -t ldc-android .
-# docker run -it ldc-android sh
