@@ -1,6 +1,6 @@
-FROM ubuntu
+FROM ubuntu:16.10
 
-RUN apt-get update && apt-get install -y curl build-essential git cmake unzip libconfig-dev
+RUN apt-get update && apt-get install -y curl build-essential git cmake unzip libconfig-dev libcurl4-openssl-dev python3
 RUN cd ~ \
 	&& curl -L -O http://downloads.dlang.org/releases/2.x/2.072.2/dmd_2.072.2-0_amd64.deb \
 	&& dpkg -i dmd_2.072.2-0_amd64.deb
@@ -9,7 +9,7 @@ RUN cd ~ \
 #	&& curl -L -O https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
 #	&& unzip -qq android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
 
-ENV DMD "/usr/bin/dmd2/linux/bin64/dmd"
+ENV DMD "/usr/bin/dmd"
 ENV NDK "/opt/android-sdk/ndk-bundle/android-ndk-r13b"
 
 RUN which dmd
