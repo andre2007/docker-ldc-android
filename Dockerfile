@@ -5,14 +5,12 @@ RUN cd ~ \
 	&& curl -L -O http://downloads.dlang.org/releases/2.x/2.072.2/dmd_2.072.2-0_amd64.deb \
 	&& dpkg -i dmd_2.072.2-0_amd64.deb
 	
-#RUN mkdir -p /opt/android-sdk/ndk-bundle \
-#	&& curl -L -O https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
-#	&& unzip -qq android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
+RUN mkdir -p /opt/android-sdk/ndk-bundle \
+	&& curl -L -O https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
+	&& unzip -qq android-ndk-r13b-linux-x86_64.zip 'android-ndk-r13b/*' -d /opt/android-sdk/ndk-bundle
 
 ENV DMD "/usr/bin/dmd"
 ENV NDK "/opt/android-sdk/ndk-bundle/android-ndk-r13b"
-
-RUN which dmd
 
 RUN curl -L -O http://releases.llvm.org/3.9.1/llvm-3.9.1.src.tar.xz \
 	&& tar xf llvm-3.9.1.src.tar.xz \
@@ -43,9 +41,8 @@ RUN cd ../runtime/druntime/ \
 	&& curl -O https://gist.githubusercontent.com/joakim-noah/7db9da3c76f76ffd3be9f57f45864cdb/raw/82b0c95bb47a75a0fe1d42bc60cdbd617006c21f/phobos_1.1.0_ldc_arm \
 	&& git apply phobos_1.1.0_ldc_arm \
 	&& cd ../../build/ \
-	&& make druntime-ldc phobos2-ldc -j5
-
-# ENV PATH "$PATH:~/ldc2-android-arm-1.1.0-beta4-linux-x86_64/bin"
+	&& make druntime-ldc phobos2-ldc -j5 \
+	&& ln -s ~/llvm-3.9.1.src/build/bin/ldc2 /usr/local/bin
 
 # docker build -t ldc-android .
 # docker run -it ldc-android sh
