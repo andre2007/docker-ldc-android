@@ -22,3 +22,4 @@ RUN cd ~ \
 	&& rm android-ndk-r13b-linux-x86_64.zip
 
 ENV NDK "/opt/android-sdk/ndk-bundle/android-ndk-r13b"
+ENV LDC "~/ldc2-android-arm-1.1.0-beta4-linux-x86_64"
