@@ -2,6 +2,7 @@ FROM ubuntu:16.10
 
 RUN apt-get update && apt-get install -y \
 	curl \
+	git \
 	libconfig9 \
 	libncursesw5 \
 	libncursesw5-dev \
