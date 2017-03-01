@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 	xz-utils
 	
 RUN cd ~ \
-	&& curl -L -O https://github.com/joakim-noah/android/releases/download/beta/ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz \
+	&& curl -L -O https://github.com/joakim-noah/android/releases/download/beta/ldc2-android-arm-1.1.1-beta5-linux-x86_64.tar.xz \
 	&& tar xf ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz \
 	&& rm ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz \
 	&& ln -s /lib/x86_64-linux-gnu/libncursesw.so.5 /lib/x86_64-linux-gnu/libncursesw.so.6 \
