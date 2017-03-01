@@ -11,10 +11,10 @@ RUN apt-get update && apt-get install -y \
 	
 RUN cd ~ \
 	&& curl -L -O https://github.com/joakim-noah/android/releases/download/beta/ldc2-android-arm-1.1.1-beta5-linux-x86_64.tar.xz \
-	&& tar xf ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz \
-	&& rm ldc2-android-arm-1.1.0-beta4-linux-x86_64.tar.xz \
+	&& tar xf ldc2-android-arm-1.1.1-beta5-linux-x86_64.tar.xz \
+	&& rm ldc2-android-arm-1.1.1-beta5-linux-x86_64.tar.xz \
 	&& ln -s /lib/x86_64-linux-gnu/libncursesw.so.5 /lib/x86_64-linux-gnu/libncursesw.so.6 \
-	&& ln -s ~/ldc2-android-arm-1.1.0-beta4-linux-x86_64/bin/ldc2 /usr/local/bin
+	&& ln -s ~/ldc2-android-arm-1.1.1-beta5-linux-x86_64/bin/ldc2 /usr/local/bin
 
 RUN cd ~ \
 	&& mkdir -p /opt/android-sdk/ndk-bundle \
@@ -23,4 +23,4 @@ RUN cd ~ \
 	&& rm android-ndk-r13b-linux-x86_64.zip
 
 ENV NDK "/opt/android-sdk/ndk-bundle/android-ndk-r13b"
-ENV LDC "/root/ldc2-android-arm-1.1.0-beta4-linux-x86_64"
+ENV LDC "/root/ldc2-android-arm-1.1.1-beta5-linux-x86_64"
