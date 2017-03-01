@@ -1,7 +1,7 @@
 # docker-ldc-android
 
 This dockerfile contains following software
-- Android 1.1.0 beta (LDC with Android support) from here https://github.com/joakim-noah/android/releases
+- Android 1.1.1 beta 5 (LDC with Android support) from here https://github.com/joakim-noah/android/releases
 - android-ndk-r13b-linux-x86_64 from here https://dl.google.com/android/repository/
 
 To start execute following command:
