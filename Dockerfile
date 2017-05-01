@@ -1,6 +1,6 @@
 FROM ubuntu:16.10
 
-ENV LDC_ARCHIVE="ldc2-android-arm-1.1.1-beta5-linux-x86_64"
+ENV LDC_ARCHIVE="ldc2-android-arm-1.2.1-beta1-linux-x86_64"
 
 RUN apt-get update && apt-get install -y \
 	curl \
