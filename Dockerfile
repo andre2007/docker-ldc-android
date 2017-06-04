@@ -1,6 +1,6 @@
 FROM ubuntu:16.10
 
-ENV LDC_ARCHIVE="ldc2-android-arm-1.2.1-beta1-linux-x86_64"
+ENV LDC_ARCHIVE="ldc2-android-arm-1.3.0-beta1-linux-x86_64"
 
 RUN apt-get update && apt-get install -y \
 	curl \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 	xz-utils
 	
 RUN cd ~ \
-	&& curl -L -O https://github.com/joakim-noah/android/releases/download/fix/${LDC_ARCHIVE}.tar.xz \
+	&& curl -L -O https://github.com/joakim-noah/android/releases/download/tea/${LDC_ARCHIVE}.tar.xz \
 	&& tar xf ${LDC_ARCHIVE}.tar.xz \
 	&& rm ${LDC_ARCHIVE}.tar.xz \
 	&& ln -s /lib/x86_64-linux-gnu/libncursesw.so.5 /lib/x86_64-linux-gnu/libncursesw.so.6 \
